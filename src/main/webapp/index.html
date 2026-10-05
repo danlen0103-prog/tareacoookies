@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro</title>
+    <style>
+        .form-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 12px 15px;
+            max-width: 380px;
+            align-items: center;
+        }
+
+        .form-grid label, .form-grid .check-label {
+            font-weight: bold;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .form-grid input[type="text"],
+        .form-grid input[type="number"],
+        .form-grid input[type="email"],
+        .form-grid select {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulario de Registro</h2>
+
+   
+    <form action="Servlet1" method="post" autocomplete="on">
+        <div class="form-grid">
+            
+            <label for="userName">Nombre:</label>
+            <input type="text" 
+                   id="userName" 
+                   name="userName" 
+                   pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{3,49}" 
+                   title="El nombre debe contener solo letras y tener entre 3 y 49 caracteres" 
+                   required 
+                   autocomplete="name">
+
+            <label for="userAge">Edad:</label>
+            <input type="number" 
+                   id="userAge" 
+                   name="userAge" 
+                   min="1" 
+                   max="120" 
+                   required>
+
+            
+            <label for="email">Correo:</label>
+            <input type="email" 
+                   id="email" 
+                   name="email" 
+                   required 
+                   autocomplete="email">
+
+            <label for="userGender">Género:</label>
+            <select id="userGender" name="userGender" required>
+                <option value="">-- Seleccione --</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Femenino">Otro</option>
+            </select>
+
+            <span class="check-label">¿Es Estudiante?</span>
+            <div>
+                <input type="checkbox" id="isStudent" name="isStudent" value="Si">
+                <label for="isStudent" style="font-weight: normal;">Sí</label>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <input type="submit" value="Enviar Datos">
+        </div>
+    </form>
+
+</body>
+</html>
